@@ -151,8 +151,6 @@ export default {
       this.y = y;
     },
     download: function() {
-      console.log("wtf");
-
       domtoimage
         .toJpeg(document.getElementById("image-download"), { quality: 0.95 })
         .then(function(dataUrl) {

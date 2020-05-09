@@ -52,10 +52,6 @@ export default {
 }
  
 #content {
- -moz-column-count: 6;
- -moz-column-gap: 0px;
- -webkit-column-count: 6;
- -webkit-column-gap: 0px;
  column-count: 6;
  column-gap: 0px;
  width: 1200px;
