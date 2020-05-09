@@ -14,7 +14,7 @@
       </vue-draggable-resizable>
 
       <vue-draggable-resizable
-        id="top"
+        id="bottom"
         :w="100"
         :h="30"
         :x="50"
@@ -22,7 +22,20 @@
         @dragging="onDrag"
         :parent="true"
       >
-        <p id="bottom-text" :style="{ fontSize: bottomSize + 'px', color: bottomColor}">{{bottom}}</p>
+      <p id="bottom-text" :style="{ fontSize: bottomSize + 'px', color: bottomColor}">{{bottom}}</p>
+      </vue-draggable-resizable>
+
+      <vue-draggable-resizable
+        id="extra1"
+        :w="100"
+        :h="30"
+        :x="50"
+        :y="300"
+        @dragging="onDrag"
+        :parent="true"
+        v-show="extra1show"
+      >
+        <p id="extra1-text" :style="{ fontSize: extra1Size + 'px', color: extra1Color}">{{extra1}}</p>
       </vue-draggable-resizable>
       <img :src="imgToEdit" :alt="`Image to edit`" />
     </div>
@@ -58,7 +71,24 @@
             <v-swatches v-model="bottomColor" swatches='text-basic'></v-swatches>
           </div>
         </b-form-group>
+          <b-form-group
+          id="input-group-3"
+          label="Text 3"
+          label-class="font-weight-bold"
+          label-for="input-3"
+          v-show="extra1show"
+        >
+          <b-form-input id="input-3" placeholder="Type text here" v-model="extra1"></b-form-input>Font size:
+          <vue-slider :min="15" :max="100" v-model="extra1Size"></vue-slider>
+          <button type="button" class="btn btn-secondary" @click="incrementFontSize('extra1')">+</button>
+          <button type="button" class="btn btn-secondary" @click="decrementFontSize('extra1')">-</button>
+          {{ extra1Size }}
+          <div>
+            <v-swatches v-model="extra1Color" swatches='text-basic'></v-swatches>
+          </div>
+        </b-form-group>
       </b-form>
+      <button type="button" class="btn btn-success" @click="extra1show = true">Add one more text</button>
       <button type="button" class="btn btn-primary" @click="download">Download</button>
     </div>
   </div>
@@ -88,12 +118,15 @@ export default {
       bottom: "",
       topSize: 15,
       bottomSize: 15,
+      extra1Size: 15,
       width: 0,
       height: 0,
       x: 0,
       y: 0,
       topColor: "#000000",
-      bottomColor: "#000000"
+      bottomColor: "#000000",
+      extra1Color: "#000000",
+      extra1show: false
     };
   },
   methods: {
@@ -130,18 +163,11 @@ export default {
         });
     }
   }
-  // const link = document.createElement('a')
-  //     link.setAttribute('href', output)
-  //     link.setAttribute('download', `${this.filename}-meme.png`)
-  //     // document.body.appendChild(link)
-  //     link.click()
-  // document.body.removeChild(link)
 };
 </script>
 
 <style scoped>
 .image {
-  border: solid black 1px;
   max-width: 50%;
   position: relative;
 }
