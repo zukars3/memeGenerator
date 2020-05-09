@@ -119,10 +119,6 @@ export default {
       topSize: 15,
       bottomSize: 15,
       extra1Size: 15,
-      width: 0,
-      height: 0,
-      x: 0,
-      y: 0,
       topColor: "#000000",
       bottomColor: "#000000",
       extra1Color: "#000000",
@@ -139,16 +135,6 @@ export default {
       if (where == "top") {
         this.topSize--;
       } else this.bottomSize--;
-    },
-    onResize: function(x, y, width, height) {
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
-    },
-    onDrag: function(x, y) {
-      this.x = x;
-      this.y = y;
     },
     download: function() {
       domtoimage
