@@ -1,6 +1,6 @@
 # meme
 
-![gif image of usage](/meme.gif)
+![gif image of usage](/meme1.gif)
 
 ## Project setup
 ```
