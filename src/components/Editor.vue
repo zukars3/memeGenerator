@@ -26,7 +26,7 @@
           v-for="(text, index) in texts"
           :key="index"
           id="input-group-1"
-          label="Text 1"
+          :label="'Text ' + (index + 1)"
           label-class="font-weight-bold"
           label-for="input-1"
         >
