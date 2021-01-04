@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <b-row class="mt-5" v-if="!images.length">
       <b-col>
         <b-spinner label="Loading images" variant="primary"></b-spinner>
